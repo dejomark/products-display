@@ -12,3 +12,5 @@ Route::get('/user', function (Request $request) {
 Route::get('/getAllProducts', [ProductController::class, 'index']);
 
 Route::get('/getAllComments', [CommentController::class, 'index']);
+
+Route::post('/postComment', [CommentController::class, 'store']);

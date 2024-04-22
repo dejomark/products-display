@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CommentController extends Controller
 {
@@ -14,7 +15,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::all();
-        return response()->json($comments, 200);
+        return response()->json($comments, Response::HTTP_OK);
     }
 
     /**
@@ -30,7 +31,24 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'product' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'content' => 'required'
+        ]);
+
+        // Create a new Post instance with the validated data
+        $comment = new Comment([
+            'product_id' => $validatedData['product'],
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'content' => $validatedData['content'],
+        ]);
+
+        $comment->save(); // Save the new post to the database
+
+        return response()->json($comment, Response::HTTP_CREATED);
     }
 
     /**

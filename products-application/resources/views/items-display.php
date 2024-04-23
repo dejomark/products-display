@@ -50,14 +50,20 @@
             .form_container {
                 background-color: #222;
                 padding: 30px;
+                margin-bottom: 30px;
             }
             .form_label {
                 color: white;
                 font-size: 22px;
             }
+            .form_title {
+                color: white;
+                font-size: 30px;
+            }
         </style>
     </head>
     <body>
+        <text class="form_title">Items</text><br>
         <div class="grid_container">
             <?php
                 use App\Models\Comment;
@@ -83,6 +89,7 @@
             ?>
         </div>
         <div class="comment_container">
+            <text class="form_title">Comments</text><br>
             <?php
                 $comments = Comment::all();
                 
@@ -105,6 +112,7 @@
             ?>
         </div>
         <div class="form_container">
+            <text class="form_title">Post a comment</text><br>
             <form action="api/postComment" method="post">
                 <label for="product"><text class="form_label">Product:  </text></label>
                 <select id="product" name="product">
@@ -121,6 +129,17 @@
                 <label for="content"><text class="form_label">Comment:  </text></label><br>
                 <textarea style="height: 200px; width: 500px;" id="content" name="content"></textarea><br>
                 <input style="font-size: 25px;" type="submit" value="Post comment">
+            </form>
+        </div>
+        <div class="form_container">
+            <form>
+                <text class="form_title">Are you an admin?</text><br>
+                <text class="form_label">Stop procrastinating and review the comments for publishing!</text><br>
+                <label for="username"><text class="form_label">Admin username:  </text></label>
+                <input type="text" id="username" name="username"><br>
+                <label for="password"><text class="form_label">Admin password:  </text></label>
+                <input type="text" id="password" name="password"><br>
+                <input style="font-size: 25px;" type="submit" value="Go to admin page">
             </form>
         </div>
     </body>

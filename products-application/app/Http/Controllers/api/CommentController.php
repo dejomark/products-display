@@ -48,7 +48,7 @@ class CommentController extends Controller
 
         $comment->save(); // Save the new post to the database
 
-        return response()->json($comment, Response::HTTP_CREATED);
+        return redirect()->back();
     }
 
     /**

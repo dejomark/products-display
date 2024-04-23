@@ -17,6 +17,10 @@
                 color: white;
                 font-size: 24px;
             }
+            .content_desc_text {
+                color: white;
+                font-size: 16px;
+            }
             .product_box {
                 background-color: #222;
                 height: 500px;
@@ -55,46 +59,61 @@
     </head>
     <body>
         <div class="grid_container">
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 1</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 2</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 3</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 4</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 5</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 6</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 7</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 8</text>
-            </div>
-            <div class="product_box">
-                <text class="content_title_text">white text in a black div 9</text>
-            </div>
+            <?php
+                use App\Models\Comment;
+                use App\Models\Product;
+
+                $products = Product::all();
+
+                $count = 0;
+                
+                foreach ($products as $product) {
+                    echo '<div class="product_box">';
+                    echo '<text class="content_title_text">' . $product["name"] . '</text><br>';
+                    echo '<img src="img/' . $product["image"] . '" style="height: 300px; width: 300px;"><br>';
+                    echo '<text class="content_desc_text">' . $product["desc"] . '</text>';
+                    echo '</div>';
+
+                    $count++;
+
+                    if ($count > 8) {
+                        break;
+                    }
+                }
+            ?>
         </div>
         <div class="comment_container">
-            <div class="comment_box">
-                <text class="comment_header">For: Stapler, by: Mike at: mike@mikemail.com</text> <br>
-                <text class="comment_content">This is a comment</text>
-            </div>
-            <div class="comment_box">
-                <text class="comment_header">For: Stapler, by: Mike at: mike@mikemail.com</text> <br>
-                <text class="comment_content">This is another comment</text>
-            </div>
+            <?php
+                $comments = Comment::all();
+                
+                foreach ($comments as $comment) {
+
+                    $item = "";
+
+                    foreach ($products as $product) {
+                        if ($product["id"] === $comment["product_id"]) {
+                            $item = $product["name"];
+                            break;
+                        }
+                    }
+
+                    echo '<div class="comment_box">';
+                    echo '<text class="comment_header">For: ' . $item . ', by: ' . $comment["name"] . ', at: ' . $comment["email"] . ' <br>';
+                    echo '<text class="comment_content"> ' . $comment["content"] . '</text>';
+                    echo '</div>';
+                }
+            ?>
         </div>
         <div class="form_container">
-            <form>
+            <form action="api/postComment" method="post">
+                <label for="product"><text class="form_label">Product:  </text></label>
+                <select id="product" name="product">
+                    <?php
+                        foreach ($products as $product) {
+                            echo '<option value=' . $product["id"] . '>' . $product["name"] . '</option>';
+                        }
+                    ?>
+                </select><br>
                 <label for="name"><text class="form_label">Name:  </text></label>
                 <input type="text" id="name" name="name"><br>
                 <label for="email"><text class="form_label">Email:  </text></label>

@@ -91,7 +91,11 @@
         <div class="comment_container">
             <text class="form_title">Comments</text><br>
             <?php
-                $comments = Comment::all();
+                $comments = json_decode(Comment::all(), true);
+
+                $comments = array_filter($comments, function ($comment) {
+                    return $comment["verified"] != 0;
+                });
                 
                 foreach ($comments as $comment) {
 

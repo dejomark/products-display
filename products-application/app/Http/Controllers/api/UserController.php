@@ -20,18 +20,11 @@ class UserController extends Controller
             ]);
 
             if($validateUser->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
+                return redirect('/error');
             }
 
             if(!Auth::attempt($request->only(['email', 'password']))){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Email & Password does not match with our record.',
-                ], 401);
+                return redirect('/error');
             }
 
             $user = User::where('email', $request->email)->first();
@@ -49,10 +42,7 @@ class UserController extends Controller
             return redirect('/admin');
 
         } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
+            return redirect('/error');
         }
     }
 

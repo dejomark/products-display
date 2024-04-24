@@ -4,7 +4,6 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
-use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -50,7 +49,7 @@ class CommentController extends Controller
         $validatedData = $request->validate([
             'product' => 'required',
             'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|email',
             'content' => 'required'
         ]);
 

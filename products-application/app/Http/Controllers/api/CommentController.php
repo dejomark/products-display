@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource with optional filter.
      */
     public function index(Request $request)
     {
@@ -19,7 +19,7 @@ class CommentController extends Controller
 
         $verified = $request["verified"];
 
-        if( $verified !== null ) {
+        if($verified !== null) {
             if ($verified) {
                 $comments = array_filter($comments, function ($comment) {
                     return $comment["verified"] != 0;

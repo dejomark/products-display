@@ -27,8 +27,4 @@ class ProductFactory extends Factory
             'desc' => '',
         ];
     }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
 }

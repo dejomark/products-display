@@ -30,9 +30,6 @@ class UserController extends Controller
             $user = User::where('email', $request->email)->first();
 
             session_start();
-            session_destroy();
-
-            session_start();
             if (!isset($_SESSION['sessionId'])) {
                 session_regenerate_id(); 
                 $_SESSION['sessionId'] = $user->id;

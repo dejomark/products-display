@@ -18,14 +18,14 @@ Open the directory in any text editor. My editor of choice was Visual Studio Cod
 Make a new file in the directory called `.env` and copy everything from `.env.example` into it.
 Next, set up your MySQL connection in the file like so:
 
-`
+```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=[name your schema]
 DB_USERNAME=[your db username]
 DB_PASSWORD=[your db password]
-`
+```
 
 Now, install all dependencies:
 

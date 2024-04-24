@@ -20,6 +20,6 @@ Route::get('/getAllComments', [CommentController::class, 'index']);
 
 Route::post('/postComment', [CommentController::class, 'store']);
 
-Route::put('/updateComment', [CommentController::class, 'update']);
+Route::post('/updateComment', [CommentController::class, 'update']);
 
-Route::delete('/eraseComment', [CommentController::class, 'destroy']);
+Route::post('/eraseComment', [CommentController::class, 'destroy']);

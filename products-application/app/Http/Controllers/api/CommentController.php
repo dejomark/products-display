@@ -62,7 +62,7 @@ class CommentController extends Controller
      */
     public function update(Request $request)
     {
-        $comment = Comment::find( $request['comment_id'] );
+        $comment = Comment::find( (int)$request->comment_id );
         $comment->verified = 1;
         $comment->save();
         return redirect()->back();
@@ -73,7 +73,7 @@ class CommentController extends Controller
      */
     public function destroy(Request $request)
     {
-        $comment = Comment::find( $request['comment_id'] );
+        $comment = Comment::find( (int)$request->comment_id );
         $comment->delete();
         return redirect()->back();
     }

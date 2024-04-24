@@ -136,13 +136,13 @@
             </form>
         </div>
         <div class="form_container">
-            <form>
+            <form action="api/auth/login" method="post">
                 <text class="form_title">Are you an admin?</text><br>
                 <text class="form_label">Stop procrastinating and review the comments for publishing!</text><br>
-                <label for="username"><text class="form_label">Admin username:  </text></label>
-                <input type="text" id="username" name="username"><br>
+                <label for="email"><text class="form_label">Admin email:  </text></label>
+                <input type="text" id="email" name="email"><br>
                 <label for="password"><text class="form_label">Admin password:  </text></label>
-                <input type="text" id="password" name="password"><br>
+                <input type="password" id="password" name="password"><br>
                 <input style="font-size: 25px;" type="submit" value="Go to admin page">
             </form>
         </div>

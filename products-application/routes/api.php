@@ -19,3 +19,7 @@ Route::get('/getAllProducts', [ProductController::class, 'index']);
 Route::get('/getAllComments', [CommentController::class, 'index']);
 
 Route::post('/postComment', [CommentController::class, 'store']);
+
+Route::put('/updateComment', [CommentController::class, 'update']);
+
+Route::delete('/eraseComment', [CommentController::class, 'destroy']);

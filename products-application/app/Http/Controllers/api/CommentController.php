@@ -62,6 +62,10 @@ class CommentController extends Controller
      */
     public function update(Request $request)
     {
+        session_start();
+        if (!isset($_SESSION['sessionId'])) {
+            return 'Access denied';
+        }
         $comment = Comment::find( (int)$request->comment_id );
         $comment->verified = 1;
         $comment->save();
@@ -73,6 +77,10 @@ class CommentController extends Controller
      */
     public function destroy(Request $request)
     {
+        session_start();
+        if (!isset($_SESSION['sessionId'])) {
+            return 'Access denied';
+        }
         $comment = Comment::find( (int)$request->comment_id );
         $comment->delete();
         return redirect()->back();

@@ -37,37 +37,37 @@ class DatabaseSeeder extends Seeder
         Product::factory()->create([
             'name' => 'Stapler 3: end of the Trilogy',
             'image' => 'stapler3.jpg',
-            'desc' => 'The grand finale of staplers, includes real gold that is definitely not fake. (found this one online)',
+            'desc' => 'The grand finale of staplers. The golden sheen lends it a dignified aura. (found this one online)',
         ]);
         Product::factory()->create([
             'name' => 'Work table',
             'image' => 'work-table.png',
-            'desc' => 'This table was practically designed for all your stapling needs!',
+            'desc' => 'A work desk well suited for writing, reading, resting your heels on the surface and the occasional stapling job.',
         ]);
         Product::factory()->create([
             'name' => 'A single piece of paper',
             'image' => 'paper.jpg',
-            'desc' => 'The scapegoat. The subject. Only one in stock. (the image was from an actual E-bay add)',
+            'desc' => 'One piece of plain white printer paper. Only one in stock. (the image was from an actual E-bay add)',
         ]);
         Product::factory()->create([
             'name' => 'Paperclip',
             'image' => 'paperclip.jpg',
-            'desc' => 'When you get tired of stapling. An unremarkable alternative.',
+            'desc' => 'When you get tired of stapling.',
         ]);
         Product::factory()->create([
             'name' => 'A lot of staples',
             'image' => 'staple.jpg',
-            'desc' => 'Admit it, you went for the paperclips because you ran out of ammo ;)',
+            'desc' => 'Staplers can\'t work on their own, they need ammunition.',
         ]);
         Product::factory()->create([
             'name' => 'A very fluffy carpet',
             'image' => 'carpet.jpg',
-            'desc' => 'Perfect for losing paperclips, staples and even whole staplers!',
+            'desc' => 'Perfect for losing paperclips and staples.',
         ]);
         Product::factory()->create([
-            'name' => 'Literal Dynamite',
-            'image' => 'dynamite.jpg',
-            'desc' => 'This has gone too far. It is time to let go. You are not perfect. Seek help.',
+            'name' => 'File folder',
+            'image' => 'folder.jpg',
+            'desc' => 'Please organize files properly, no need for paperclips or staples.',
         ]);
     }
 }

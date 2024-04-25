@@ -76,7 +76,7 @@
         </div>
         <div class="form_container">
             <form action="api/auth/logout" method="post">
-                <input style="font-size: 25px;" type="submit" value="Log out">
+                <input style="font-size: 25px;" type="submit" value="Log out and return to main page">
             </form>
         </div>
     </body>

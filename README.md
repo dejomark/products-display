@@ -67,6 +67,6 @@ Go to the url your server was opened on and have fun!
 
 # API
 
-This application does have na API, however, the outputs for storing, updating and deleting methods is very different in comparison to normal outputs of those methods. Had the front-end part of the app not been inside of the project and run on the same development server, the outputs would follow the standard for outputs of that nature.
+This application does have na API, however, the outputs for storing, updating and deleting methods are very different in comparison to normal outputs of those methods. Had the front-end part of the app not been inside of the project and run on the same development server, the outputs would have followed the standard for outputs of that nature.
 
-All of the endpoints in `api.php` are accessable through `[server url and port]/api/[endpoint]`. Keep in mind that the `updateComment` and `eraseComment` endpoint are denied unless you're logged in through the API as an admin.
+All of the endpoints in `api.php` are accessable through `[server url and port]/api/[endpoint]`. Keep in mind that `updateComment` and `eraseComment` endpoints are denied unless you're logged in through the API as an admin.
